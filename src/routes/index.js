@@ -9,8 +9,12 @@ let connection = sql.createConnection({
   database: "bsale_test",
 });
 
-// Query to get all the items
 router.get("/", (req, res) => {
+  res.send("Hello");
+});
+
+// Query to get all the items
+router.get("/products", (req, res) => {
   connection.query("SELECT * FROM product", function (error, results, fields) {
     if (error) throw error;
     res.send(results);
