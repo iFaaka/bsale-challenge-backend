@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index"
+    "dev": "nodemon src/index",
+    "start": "node ."
   },
   "author": "facundo",
   "license": "ISC",
@@ -12,7 +13,9 @@
     "body-parser": "^1.20.0",
     "express": "^4.18.1",
     "morgan": "^1.10.0",
-    "mysql": "^2.18.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.19"
   }
 }
