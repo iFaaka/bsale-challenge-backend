@@ -1,12 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
-const favicon = require("express-favicon");
 
 //Config
 const app = express();
 app.set("port", process.env.PORT || 3000);
-app.use(favicon("./public/favicon.png"));
 
 // Middlewares
 app.use(morgan("dev"));
