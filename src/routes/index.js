@@ -10,7 +10,9 @@ let connection = sql.createConnection({
 });
 
 router.get("/", (req, res) => {
-  res.send("Hello");
+  res.send(
+    "¡Hola! Noto que estas usando mi API, lamentablemente en la pagina de inicio no devuelve nada mas que este bonito mensaje. Podes ver en la documentacion que otras rutas tengo :)"
+  );
 });
 
 // Query to get all the items
