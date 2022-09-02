@@ -41,6 +41,28 @@ router.get("/category/:id", (req, res) => {
   );
 });
 
+router.get("/discount", (req, res) => {
+  connection.query(
+    "SELECT * FROM product WHERE discount > 0",
+    function (error, results, fields) {
+      if (error) throw error;
+      res.send(results);
+    }
+  );
+});
+
+router.get("/search/:name", (req, res) => {
+  const { name } = req.params;
+  console.log(name);
+  connection.query(
+    `SELECT * FROM product WHERE name LIKE '%${name}%'`,
+    function (error, results, fields) {
+      if (error) throw error;
+      res.send(results);
+    }
+  );
+});
+
 // Keep Alive
 setInterval(function () {
   connection.query("SELECT 1");
