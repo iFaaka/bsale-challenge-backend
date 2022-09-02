@@ -33,7 +33,7 @@ router.get("/category", (req, res) => {
 router.get("/category/:id", (req, res) => {
   const { id } = req.params;
   connection.query(
-    "SELECT * FROM product WHERE category=5",
+    `SELECT * FROM product WHERE category= ${id}`,
     function (error, results, fields) {
       if (error) throw error;
       res.send(results);
