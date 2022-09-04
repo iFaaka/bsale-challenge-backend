@@ -43,6 +43,7 @@ router.get("/category/:id", (req, res) => {
   );
 });
 
+/* Query to get all items with discount */
 router.get("/discount", (req, res) => {
   connection.query(
     "SELECT * FROM product WHERE discount > 0",
@@ -53,6 +54,7 @@ router.get("/discount", (req, res) => {
   );
 });
 
+/* Query to search item by name */
 router.get("/search/:name", (req, res) => {
   const { name } = req.params;
   console.log(name);
