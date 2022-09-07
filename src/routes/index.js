@@ -8,6 +8,10 @@ let connection = sql.createConnection({
   password: "bsale_test",
   database: "bsale_test",
 });
+connection.connect((err) => {
+  if (err) throw err;
+  console.log("Conected!");
+});
 
 router.get("/", (req, res) => {
   res.send(
@@ -70,6 +74,6 @@ router.get("/search/:name", (req, res) => {
 // Keep Alive
 setInterval(function () {
   connection.query("SELECT 1");
-}, 4000);
+}, 1000);
 
 module.exports = router;
