@@ -4,13 +4,9 @@ const morgan = require("morgan");
 const app = express();
 app.set("port", process.env.PORT || 3000);
 
+const cors = require("cors");
 
-
-const cors=require("cors");
-
-
-app.use(cors()) // Solved CORS Problem giving access to all links
-
+app.use(cors()); // Solved CORS Problem giving access to all links
 
 // Middlewares
 app.use(morgan("dev"));

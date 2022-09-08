@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const sql = require("mysql");
+const cors = require("cors");
 
 let connection = sql.createConnection({
   host: "mdb-test.c6vunyturrl6.us-west-1.rds.amazonaws.com",
@@ -13,14 +14,14 @@ connection.connect((err) => {
   console.log("Conected!");
 });
 
-router.get("/", (req, res) => {
+router.get("/", cors(), (req, res) => {
   res.send(
     "¡Hola! Noto que estas usando mi API, lamentablemente en la pagina de inicio no devuelve nada mas que este bonito mensaje. Podes ver en la documentacion que otras rutas tengo :)"
   );
 });
 
 // Query to get all the items
-router.get("/products", (req, res) => {
+router.get("/products", cors(), (req, res) => {
   connection.query("SELECT * FROM product", function (error, results, fields) {
     if (error) throw error;
     res.send(results);
@@ -28,7 +29,7 @@ router.get("/products", (req, res) => {
 });
 
 // Query to Get Categorys
-router.get("/category", (req, res) => {
+router.get("/category", cors(), (req, res) => {
   connection.query("SELECT * FROM category", function (error, results, fields) {
     if (error) throw error;
     res.send(results);
@@ -36,7 +37,7 @@ router.get("/category", (req, res) => {
 });
 
 //Query to get all items of a specific
-router.get("/category/:id", (req, res) => {
+router.get("/category/:id", cors(), (req, res) => {
   const { id } = req.params;
   connection.query(
     `SELECT * FROM product WHERE category= ${id}`,
@@ -48,7 +49,7 @@ router.get("/category/:id", (req, res) => {
 });
 
 /* Query to get all items with discount */
-router.get("/discount", (req, res) => {
+router.get("/discount", cors(), (req, res) => {
   connection.query(
     "SELECT * FROM product WHERE discount > 0",
     function (error, results, fields) {
@@ -59,7 +60,7 @@ router.get("/discount", (req, res) => {
 });
 
 /* Query to search item by name */
-router.get("/search/:name", (req, res) => {
+router.get("/search/:name", cors(), (req, res) => {
   const { name } = req.params;
   console.log(name);
   connection.query(
@@ -77,4 +78,3 @@ setInterval(function () {
 }, 500);
 
 module.exports = router;
- 
