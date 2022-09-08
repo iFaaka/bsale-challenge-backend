@@ -14,9 +14,10 @@ connection.connect((err) => {
   console.log("Conected!");
 });
 
+//Welcome Message
 router.get("/", cors(), (req, res) => {
   res.send(
-    "¡Hola! Noto que estas usando mi API, lamentablemente en la pagina de inicio no devuelve nada mas que este bonito mensaje. Podes ver en la documentacion que otras rutas tengo :)"
+    "¡Hola! Noto que estas usando mi API, lamentablemente en la pagina de inicio no devuelve nada mas que este bonito mensaje. Podes ver en la documentacion para esta API en https://bsale-front-fa.netlify.app/documentacion.html :)"
   );
 });
 
