@@ -74,6 +74,7 @@ router.get("/search/:name", (req, res) => {
 // Keep Alive
 setInterval(function () {
   connection.query("SELECT 1");
-}, 1000);
+}, 500);
 
 module.exports = router;
+ 
